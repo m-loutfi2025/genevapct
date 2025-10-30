@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geneva Printing & Clearing - Coming Soon</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Set Inter font globally -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Prevent scrolling on the full-screen page */
+            overflow: hidden; 
+        }
+        /* Custom Keyframes for Subtle Pulse Animation */
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.02); opacity: 1; }
+        }
+        .pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+
+        /* Define brand color using Tailwind configuration */
+        :root {
+            --geneva-orange: #F98F1D;
+            --geneva-dark: #212121;
+        }
+
+        /* Custom utility for the orange color */
+        .bg-geneva-orange { background-color: var(--geneva-orange); }
+        .text-geneva-orange { color: var(--geneva-orange); }
+        .border-geneva-orange { border-color: var(--geneva-orange); }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'geneva-orange': '#F98F1D',
+                        'geneva-dark': '#212121',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-screen w-screen flex items-center justify-center bg-gray-50 text-gray-800">
+
+    <!-- Subtle animated background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-90"></div>
+
+    <!-- Main Content Container: Centered and Responsive -->
+    <main class="relative z-10 p-6 md:p-10 max-w-lg w-11/12 text-center rounded-xl">
+        
+        <!-- Logo -->
+        <div id="logo-container" class="mb-12 transition-all duration-700 ease-out transform opacity-0 scale-95">
+            <!--
+                NOTE: The logo path is the filename you uploaded.
+                The orange brand color is derived from this logo.
+            -->
+            <img src="geneva-logo.png" 
+                 alt="Geneva Printing & Clearing Of Transaction Logo" 
+                 class="mx-auto h-24 sm:h-32 object-contain shadow-2xl rounded-lg pulse-subtle"
+                 onerror="this.onerror=null;this.src='https://placehold.co/300x100/F98F1D/ffffff?text=Geneva+Logo';"
+            >
+        </div>
+
+        <!-- Countdown Timer Section -->
+        <div id="countdown-timer" class="space-y-6 transition-all duration-700 delay-300 ease-out transform opacity-0 translate-y-4">
+            
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 border-b pb-4 mb-8 border-geneva-orange/30">
+                Launching Soon
+            </h1>
+
+            <div class="flex justify-center space-x-2 sm:space-x-4">
+                <!-- Days Block -->
+                <div class="countdown-block flex flex-col items-center p-3 sm:p-5 bg-white shadow-xl rounded-xl border-t-4 border-geneva-orange/70 hover:shadow-2xl transition-all duration-300 w-1/4">
+                    <span id="days" class="text-4xl sm:text-5xl font-bold text-geneva-orange">00</span>
+                    <span class="text-xs sm:text-sm text-gray-500 mt-1 uppercase font-medium tracking-wider">Days</span>
+                </div>
+
+                <!-- Hours Block -->
+                <div class="countdown-block flex flex-col items-center p-3 sm:p-5 bg-white shadow-xl rounded-xl border-t-4 border-geneva-orange/70 hover:shadow-2xl transition-all duration-300 w-1/4">
+                    <span id="hours" class="text-4xl sm:text-5xl font-bold text-geneva-orange">00</span>
+                    <span class="text-xs sm:text-sm text-gray-500 mt-1 uppercase font-medium tracking-wider">Hours</span>
+                </div>
+
+                <!-- Minutes Block -->
+                <div class="countdown-block flex flex-col items-center p-3 sm:p-5 bg-white shadow-xl rounded-xl border-t-4 border-geneva-orange/70 hover:shadow-2xl transition-all duration-300 w-1/4">
+                    <span id="minutes" class="text-4xl sm:text-5xl font-bold text-geneva-orange">00</span>
+                    <span class="text-xs sm:text-sm text-gray-500 mt-1 uppercase font-medium tracking-wider">Minutes</span>
+                </div>
+
+                <!-- Seconds Block -->
+                <div class="countdown-block flex flex-col items-center p-3 sm:p-5 bg-white shadow-xl rounded-xl border-t-4 border-geneva-orange/70 hover:shadow-2xl transition-all duration-300 w-1/4">
+                    <span id="seconds" class="text-4xl sm:text-5xl font-bold text-geneva-orange">00</span>
+                    <span class="text-xs sm:text-sm text-gray-500 mt-1 uppercase font-medium tracking-wider">Seconds</span>
+                </div>
+            </div>
+            
+            <p class="mt-8 text-sm sm:text-base text-gray-600">
+                Get ready for a new era in printing and transaction clearing services.
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+        // --- JAVASCRIPT FOR COUNTDOWN TIMER ---
+        
+        // Helper function to pad numbers with a leading zero
+        function pad(number) {
+            return String(number).padStart(2, '0');
+        }
+
+        // Set the launch date: 48 hours from now
+        // NOTE: This is a placeholder. In a real application, you would set a fixed date.
+        const launchTimeInMilliseconds = 48 * 60 * 60 * 1000;
+        const launchDate = new Date().getTime() + launchTimeInMilliseconds;
+
+        const timerElements = {
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds')
+        };
+        
+        const logoContainer = document.getElementById('logo-container');
+        const countdownTimer = document.getElementById('countdown-timer');
+
+        // Function to update the countdown
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(interval);
+                timerElements.days.innerHTML = '00';
+                timerElements.hours.innerHTML = '00';
+                timerElements.minutes.innerHTML = '00';
+                timerElements.seconds.innerHTML = '00';
+                document.querySelector('#countdown-timer h1').innerText = 'We are LIVE!';
+                document.querySelector('#countdown-timer p').innerText = 'Thank you for your patience. Explore our new services now.';
+            } else {
+                // Update the timer display
+                timerElements.days.innerHTML = pad(days);
+                timerElements.hours.innerHTML = pad(hours);
+                timerElements.minutes.innerHTML = pad(minutes);
+                timerElements.seconds.innerHTML = pad(seconds);
+            }
+        }
+        
+        // Run the initial update immediately
+        updateCountdown();
+
+        // Update the countdown every 1 second
+        const interval = setInterval(updateCountdown, 1000);
+
+        // --- ANIMATION CONTROLLER ---
+        window.onload = function () {
+            // Fade-in animation for logo
+            logoContainer.classList.remove('opacity-0', 'scale-95');
+            logoContainer.classList.add('opacity-100', 'scale-100');
+
+            // Fade-in and slide-up animation for timer (delayed)
+            setTimeout(() => {
+                countdownTimer.classList.remove('opacity-0', 'translate-y-4');
+                countdownTimer.classList.add('opacity-100', 'translate-y-0');
+            }, 300); // Matches the delay-300 class in HTML
+        }
+
+    </script>
+</body>
+</html>
