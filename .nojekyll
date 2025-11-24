@@ -1,3 +1,0 @@
-# This file disables Jekyll processing for GitHub Pages
-# GitHub Pages tries to process sites with Jekyll by default
-# Since this is a React/Vite app, we don't need Jekyll
