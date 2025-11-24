@@ -14,7 +14,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-footer-dark text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
