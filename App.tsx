@@ -12,10 +12,12 @@ import QuoteModal from './QuoteModal';
 import WhyChooseUs from './WhyChooseUs';
 import Testimonials from './Testimonials';
 import CookieConsent from './CookieConsent';
+import WelcomePopup from './WelcomePopup';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
 
   const homeRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
@@ -30,6 +32,20 @@ const App: React.FC = () => {
     about: aboutRef,
     contact: contactRef,
   };
+
+  useEffect(() => {
+    // Check if user has visited before
+    const hasVisited = localStorage.getItem('geneva-welcome-visited');
+    
+    if (!hasVisited) {
+      // Show welcome popup after a short delay
+      const timer = setTimeout(() => {
+        setShowWelcomePopup(true);
+      }, 2000); // Show after 2 seconds
+      
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -62,6 +78,12 @@ const App: React.FC = () => {
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
+  const closeWelcomePopup = () => {
+    setShowWelcomePopup(false);
+    // Mark as visited
+    localStorage.setItem('geneva-welcome-visited', 'true');
+  };
+
   return (
     <div className="relative">
       <Header onNavigate={scrollToSection} onQuoteClick={toggleModal} activeSection={activeSection} />
@@ -86,6 +108,7 @@ const App: React.FC = () => {
       <Chatbot onQuoteClick={toggleModal} />
       <CookieConsent />
       {isModalOpen && <QuoteModal onClose={toggleModal} />}
+      {showWelcomePopup && <WelcomePopup onClose={closeWelcomePopup} />}
     </div>
   );
 };
