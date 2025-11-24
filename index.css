@@ -16,3 +16,8 @@
   transform: translateY(var(--translate-y, 0px));
   transition: transform 0.1s ease-out;
 }
+
+/* Custom footer color */
+.bg-footer-dark {
+  background-color: #1a1a1a !important;
+}
