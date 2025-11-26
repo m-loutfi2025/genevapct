@@ -1,43 +1,27 @@
-// FIX: Import React to resolve namespace issue for React types used in this file.
-import React from 'react';
-
 export interface Service {
+  id: number;
   title: string;
   description: string;
   image: string;
-  details: string[];
-}
-
-export interface Testimonial {
-  name: string;
-  role: string;
-  quote: string;
-  rating: number;
-}
-
-export interface PricingPlan {
-  name: string;
-  priceInfo: string;
   features: string[];
-  isFeatured: boolean;
-}
-
-export interface CoreValue {
-  name: string;
-  description: string;
-  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 export interface CompanyInfo {
-    name: string;
-    email: string;
-    phone: string;
-    phoneHref: string;
-    website: string;
-    whatsapp: string;
-    whatsappHref: string;
-    location: string;
-    fullAddress: string;
-    googleMapsEmbed: string;
-    googleReviewsLink: string;
+  name: string;
+  tagline: string;
+  description: string;
+  address: string;
+  phone: string;
+  email: string;
+  website: string;
+  googleMapsEmbed: string;
+  whatsapp: string;
 }
+
+export interface NavLink {
+  id: string;
+  label: string;
+  href: string;
+}
+
+export type SectionType = 'home' | 'services' | 'pricing' | 'about' | 'contact';
