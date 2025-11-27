@@ -12,16 +12,24 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '.'),
-    }
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      },
       output: {
         manualChunks: undefined,
       },
     },
-  }
+  },
+  esbuild: {
+    loader: 'tsx',
+    include: /App\.tsx$/,
+  },
 });
