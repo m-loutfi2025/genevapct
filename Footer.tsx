@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-                <img src="/image_8.png" alt="Geneva Logo" className="w-10 h-10 object-contain" />
+                <img src="/geneva-logo.png" alt="Geneva Logo" className="w-10 h-10 object-contain" />
                 <div className="text-white font-unbounded font-bold text-xl">
                     Geneva
                 </div>

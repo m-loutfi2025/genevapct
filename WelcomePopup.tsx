@@ -9,8 +9,10 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    console.log('WelcomePopup mounted');
     // Fade in animation
     const timer = setTimeout(() => {
+      console.log('WelcomePopup setting isVisible to true');
       setIsVisible(true);
     }, 100);
 
@@ -54,7 +56,7 @@ const WelcomePopup: React.FC<WelcomePopupProps> = ({ onClose }) => {
           {/* Logo */}
           <div className="flex justify-center mb-6">
             <div className="flex items-center gap-2.5">
-              <img src="/image_8.png" alt="Geneva Logo" className="w-12 h-12 object-contain" />
+              <img src="/geneva-logo.png" alt="Geneva Logo" className="w-12 h-12 object-contain" />
               <div className="text-primary font-unbounded font-bold text-2xl">
                 Geneva
               </div>

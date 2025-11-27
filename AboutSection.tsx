@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="/image_4.jpeg" alt="A large, industrial printing press at the Geneva facility" className="rounded-lg shadow-xl" loading="lazy"/>
+                        <img src="/industrial-printing-press.jpeg" alt="A large, industrial printing press at the Geneva facility" className="rounded-lg shadow-xl" loading="lazy"/>
                     </div>
                     <div>
                         <h2 className="text-4xl md:text-5xl font-unbounded font-bold text-dark mb-4">About Geneva</h2>

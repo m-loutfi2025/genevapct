@@ -19,7 +19,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onQuoteClick }) => {
                         </p>
                     </div>
                     <div className="hidden lg:block">
-                        <img src="/image_5.jpeg" alt="A collection of professionally printed materials including brochures, business cards, and stationery." className="rounded-lg shadow-xl"/>
+                        <img src="/printed-materials-collection.jpeg" alt="A collection of professionally printed materials including brochures, business cards, and stationery." className="rounded-lg shadow-xl"/>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">

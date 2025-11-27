@@ -34,17 +34,16 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem('geneva-welcome-visited');
+    // Show welcome popup on every visit
+    console.log('Welcome popup will show on every visit');
     
-    if (!hasVisited) {
-      // Show welcome popup after a short delay
-      const timer = setTimeout(() => {
-        setShowWelcomePopup(true);
-      }, 2000); // Show after 2 seconds
-      
-      return () => clearTimeout(timer);
-    }
+    // Show welcome popup after a short delay
+    const timer = setTimeout(() => {
+      console.log('Setting showWelcomePopup to true');
+      setShowWelcomePopup(true);
+    }, 1000); // Show after 1 second
+    
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -80,8 +79,7 @@ const App: React.FC = () => {
 
   const closeWelcomePopup = () => {
     setShowWelcomePopup(false);
-    // Mark as visited
-    localStorage.setItem('geneva-welcome-visited', 'true');
+    // No longer marking as visited since popup shows every time
   };
 
   return (

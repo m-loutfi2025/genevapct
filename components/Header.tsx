@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, onQuoteClick, activeSection
                     <div className="flex items-center justify-between py-4">
                         {/* Logo */}
                         <button onClick={() => handleNavClick('home')} className="flex items-center gap-2.5 group">
-                            <img src="/image_8.png" alt="Geneva Logo" className="w-10 h-10 object-contain" />
+                            <img src="/geneva-logo.png" alt="Geneva Logo" className="w-10 h-10 object-contain" />
                             <div className="text-dark font-unbounded font-bold group-hover:text-primary transition-colors text-lg">
                                 Geneva
                             </div>

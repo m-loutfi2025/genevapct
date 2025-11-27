@@ -3,6 +3,9 @@ import type { CompanyInfo, Service, Testimonial, PricingPlan } from './types';
 
 export const COMPANY_INFO: CompanyInfo = {
     name: "Geneva Printing & Clearing Of Transaction",
+    tagline: "Professional Printing & Transaction Services",
+    description: "Your trusted partner in Al Ain for high-quality printing solutions and efficient government transaction services.",
+    address: "Al Ain, Abu Dhabi, UAE",
     email: "info@genevapct.com",
     phone: "+971 3 762 0403",
     phoneHref: "tel:+97137620403",
@@ -27,19 +30,19 @@ export const SERVICES: Service[] = [
     {
         title: "Printing Services",
         description: "High-quality digital and offset printing for all your business needs.",
-        image: "/image_0.jpeg",
+        image: "/printing-services.jpeg",
         details: ["Business Cards & Brochures", "Banners & Posters", "Flyers & Advertisements", "Custom Stationery"]
     },
     {
         title: "Transaction Clearing",
         description: "Efficient and reliable clearing for government and commercial transactions.",
-        image: "/image_7.jpeg",
+        image: "/transaction-clearing.jpeg",
         details: ["Visa & Immigration Services", "License Renewals", "Document Attestation", "Official Paperwork"]
     },
     {
         title: "Corporate Solutions",
         description: "Comprehensive support services to streamline your corporate operations.",
-        image: "/image_1.jpeg",
+        image: "/corporate-solutions.jpeg",
         details: ["Administrative Support", "Corporate Document Management", "PRO Services", "Business Setup Assistance"]
     }
 ];
@@ -62,6 +65,12 @@ export const TESTIMONIALS: Testimonial[] = [
         role: "Startup Founder",
         quote: "As a new business, their corporate solutions were invaluable. They guided us through every step. Exceptional customer service!",
         rating: 4
+    },
+    {
+        name: "Mohamed L.",
+        role: "CEO",
+        quote: "Their service is top-notch, and they always go the extra mile to ensure customer satisfaction. Highly recommended!",
+        rating: 5
     }
 ];
 

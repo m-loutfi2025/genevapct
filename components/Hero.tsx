@@ -46,8 +46,8 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
             {/* Animated Blob Background */}
             <div className="absolute top-0 left-0 w-full h-full z-0">
                 <div className="absolute top-1/4 left-1/4 w-72 h-72 lg:w-96 lg:h-96 bg-primary/20 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
-                <div className="absolute top-1/2 right-1/4 w-72 h-72 lg:w-96 lg:h-96 bg-gray-500/20 rounded-full filter blur-3xl opacity-50 animate-blob" style={{animationDelay: '2s'}}></div>
-                <div className="absolute bottom-1/4 left-1/3 w-72 h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full filter blur-3xl opacity-50 animate-blob" style={{animationDelay: '4s'}}></div>
+                <div className="absolute top-1/2 right-1/4 w-72 h-72 lg:w-96 lg:h-96 bg-gray-500/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+                <div className="absolute bottom-1/4 left-1/3 w-72 h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-center min-h-screen py-24 md:py-0">
@@ -115,21 +115,25 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
                     <div className="hidden lg:block relative h-[70vh] group">
                          <div className="relative w-full h-full rounded-xl shadow-2xl overflow-hidden">
                             <img 
-                                src="/image_2.jpeg" 
+                                src="/graphic-design.jpg" 
                                 alt="A designer working on branding materials for Geneva Printing" 
-                                className="relative z-10 w-full h-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105" 
-                                style={{ transform: `translateY(${offsetY * 0.1}px)` }}
+                                className="relative z-10 w-full h-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105 parallax-image" 
+                                ref={(el) => {
+    if (el) {
+        el.style.setProperty('--translate-y', `${offsetY * 0.1}px`);
+    }
+}}
                             />
                         </div>
                         
                          <div className="absolute -top-4 -left-4 w-full h-full rounded-xl border-2 border-primary/20 animate-pulse-slow z-0"></div>
-                         <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl border-2 border-primary/20 animate-pulse-slow z-0" style={{animationDelay: '2s'}}></div>
+                         <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl border-2 border-primary/20 animate-pulse-slow z-0 animation-delay-2000"></div>
                         
                         <div className="absolute -bottom-8 -left-12 bg-white/90 backdrop-blur-sm text-dark p-4 rounded-lg shadow-xl animate-float">
                            <p className="font-bold text-lg">5.0 <span className="text-yellow-500">★★★★★</span></p>
                            <p className="text-sm font-cabin">Google Reviews</p>
                         </div>
-                        <div className="absolute -top-8 -right-12 bg-white/90 backdrop-blur-sm text-dark p-4 rounded-lg shadow-xl animate-float" style={{animationDelay: '1s'}}>
+                        <div className="absolute -top-8 -right-12 bg-white/90 backdrop-blur-sm text-dark p-4 rounded-lg shadow-xl animate-float animation-delay-1000">
                            <p className="font-bold text-lg">1,200+</p>
                            <p className="text-sm font-cabin">Happy Clients</p>
                         </div>

@@ -115,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
                     <div className="hidden lg:block relative h-[70vh] group">
                          <div className="relative w-full h-full rounded-xl shadow-2xl overflow-hidden">
                             <img 
-                                src="/image_2.jpeg" 
+                                src="/graphic-design.jpg" 
                                 alt="A designer working on branding materials for Geneva Printing" 
                                 ref={(el) => {
     if (el) {
