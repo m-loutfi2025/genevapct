@@ -121,8 +121,11 @@ const Hero: React.FC<HeroProps> = ({ onQuoteClick }) => {
                                 ref={(el) => {
     if (el) {
         el.style.setProperty('--translate-y', `${offsetY * 0.1}px`);
+        console.log('Hero image loaded:', el.src);
     }
 }}
+                                onLoad={(e) => console.log('Hero image successfully loaded')}
+                                onError={(e) => console.error('Hero image failed to load:', e.currentTarget.src)}
                             />
                         </div>
                         

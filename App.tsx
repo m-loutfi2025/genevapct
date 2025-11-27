@@ -15,6 +15,8 @@ import CookieConsent from './CookieConsent';
 import WelcomePopup from './WelcomePopup';
 
 const App: React.FC = () => {
+  console.log('App component is rendering');
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showWelcomePopup, setShowWelcomePopup] = useState(false);
@@ -34,6 +36,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log('App component mounted');
     // Show welcome popup on every visit
     console.log('Welcome popup will show on every visit');
     
